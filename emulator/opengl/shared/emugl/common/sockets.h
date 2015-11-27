@@ -35,6 +35,10 @@ int socketLocalServer(const char* path, int socketType);
 // on success, or -errno code on failure.
 int socketLocalClient(const char* path, int socketType);
 
+// Bind to a TCP socket, and return its socket descriptor on
+// success, or -errno code on failure.
+int socketTcpServer(int port, int socketType);
+
 // Bind to a localhost TCP socket, and return its socket descriptor on
 // success, or -errno code on failure.
 int socketTcpLoopbackServer(int port, int socketType);

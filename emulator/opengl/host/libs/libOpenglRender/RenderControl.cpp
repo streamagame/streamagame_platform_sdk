@@ -146,7 +146,7 @@ static EGLint rcGetFBParam(EGLint param)
             ret = 72; // XXX: should be implemented
             break;
         case FB_FPS:
-            ret = 60;
+            ret = 50;
             break;
         case FB_MIN_SWAP_INTERVAL:
             ret = 1; // XXX: should be implemented

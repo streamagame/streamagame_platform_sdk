@@ -188,6 +188,15 @@ int socketLocalClient(const char* path, int socketType) {
 }
 #endif  // !_WIN32
 
+int socketTcpServer(int port, int socketType) {
+    SockAddr addr;
+    int ret = addr.initFromInet(INADDR_ANY, port);
+    if (ret < 0) {
+        return ret;
+    }
+    return socketBindInternal(&addr, socketType);
+}
+
 int socketTcpLoopbackServer(int port, int socketType) {
     SockAddr addr;
     int ret = addr.initFromLocalhost(port);
