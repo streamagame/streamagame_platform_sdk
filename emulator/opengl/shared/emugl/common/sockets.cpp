@@ -107,6 +107,8 @@ int socketBindInternal(const SockAddr* addr, int socketType) {
     if (s < 0)
         return -errno;
 
+    socketSetReuseAddress(s);
+
     // Bind to the socket.
     if (::bind(s, &addr->generic, addr->len) < 0 ||
         ::listen(s, 5) < 0) {
@@ -115,7 +117,6 @@ int socketBindInternal(const SockAddr* addr, int socketType) {
         return ret;
     }
 
-    socketSetReuseAddress(s);
     return s;
 }
 
